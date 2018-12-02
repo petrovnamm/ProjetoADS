@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.dltk
+Bundle-Version: 5.8.2.201709190955
+Bundle-ClassPath: org.eclipse.dltk_5.8.2.201709190955.jar
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Created-By: Apache Maven 3.5.0
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/dltk/org.eclipse.dltk.core.git;path="core/plugins/org.eclipse.dltk";commitId=8b5fc06129cfa491fa5e805d2a588170a2e16912
+Build-Jdk: 1.8.0_131
+Archiver-Version: Plexus Archiver
+Built-By: genie.dltk

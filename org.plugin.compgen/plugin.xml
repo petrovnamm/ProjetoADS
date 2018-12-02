@@ -5,13 +5,37 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            name="Sample XML Editor"
+            name="CompGen Editor"
             extensions="xml"
             icon="icons/sample.gif"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="org.plugin.compgen.editors.XMLEditor"
-            id="org.plugin.compgen.editors.XMLEditor">
+            class="org.plugin.compgen.editors.CompGenEditor"
+            id="org.plugin.compgen.editors.CompGenEditor">
       </editor>
    </extension>
+   
+   <extension id="nature" point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run class="org.plugin.compgen.editors.CompGenNature"/>
+      </runtime>
+   </extension>
+
+	<extension point="org.eclipse.dltk.core.completionEngine">
+	   <completionEngine
+	         class="org.plugin.compgen.editors.CompGenCompletionEngine"
+	         nature="org.plugin.compgen.editors.CompGenNature"
+	         priority="0">
+	   </completionEngine>
+	</extension>
+
+	<extension point="org.eclipse.dltk.ui.scriptCompletionProposalComputer"
+			id="org.eclipse.dltk.ui">
+			<scriptCompletionProposalComputer
+				class="org.plugin.compgen.editors.CompGenCompletionProposalComputer"
+				categoryId="org.eclipse.dltk.ui.scriptTypeProposalCategory"
+				toolkitId="org.plugin.compgen.editors.CompGenEditor.nature">
+				<partition type="__dftl_partition_content_type"/>
+			</scriptCompletionProposalComputer>
+	</extension>
 
 </plugin>
