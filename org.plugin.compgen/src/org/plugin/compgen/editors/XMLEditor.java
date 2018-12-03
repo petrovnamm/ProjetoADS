@@ -9,7 +9,7 @@ public class XMLEditor extends TextEditor {
 	public XMLEditor() {
 		super();
 		colorManager = new ColorManager();
-		setSourceViewerConfiguration(new XMLConfiguration(colorManager));
+		setSourceViewerConfiguration(new CompGenConfiguration(colorManager));
 		setDocumentProvider(new XMLDocumentProvider());
 	}
 	public void dispose() {

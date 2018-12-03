@@ -13,10 +13,10 @@ public class XMLDocumentProvider extends FileDocumentProvider {
 		if (document != null) {
 			IDocumentPartitioner partitioner =
 				new FastPartitioner(
-					new XMLPartitionScanner(),
+					new CompGenPartitionScanner(),
 					new String[] {
-						XMLPartitionScanner.XML_TAG,
-						XMLPartitionScanner.XML_COMMENT });
+						CompGenPartitionScanner.CON_GEN_CLASS,
+						CompGenPartitionScanner.CON_GEN_COMMENT });
 			partitioner.connect(document);
 			document.setDocumentPartitioner(partitioner);
 		}

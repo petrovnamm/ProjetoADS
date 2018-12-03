@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.equinox.app;singleton:=true
+Bundle-Version: 1.3.400.v20150715-1528
+Bundle-ClassPath: org.eclipse.equinox.app_1.3.400.v20150715-1528.jar
+Bundle-Activator: org.eclipse.equinox.internal.app.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.equinox.app;version="1.1",
+ org.eclipse.equinox.internal.app;x-friends:="org.eclipse.core.runtime",
+ org.osgi.service.application;version="1.1"
+Require-Bundle: org.eclipse.equinox.registry;bundle-version="[3.4.0,4.0.0)",
+ org.eclipse.equinox.common;bundle-version="[3.2.0,4.0.0)"
+Eclipse-LazyStart: true
+Created-By: Apache Maven 3.1.1
+Comment-Header: Both Eclipse-LazyStart and Bundle-ActivationPolicy are specified for compatibility with 3.2
+Built-By: e4Build
+Bundle-RequiredExecutionEnvironment: OSGi/Minimum-1.2,
+ CDC-1.1/Foundation-1.1,
+ J2SE-1.4
+Import-Package: org.eclipse.osgi.framework.console;resolution:=optional,
+ org.eclipse.osgi.framework.log,
+ org.eclipse.osgi.service.datalocation,
+ org.eclipse.osgi.service.debug,
+ org.eclipse.osgi.service.environment;version="1.1",
+ org.eclipse.osgi.service.runnable,
+ org.eclipse.osgi.storagemanager,
+ org.eclipse.osgi.util,
+ org.osgi.framework;version="1.3",
+ org.osgi.service.condpermadmin;resolution:=optional,
+ org.osgi.service.event;version="1.0.0";resolution:=optional,
+ org.osgi.service.packageadmin;version="1.2",
+ org.osgi.util.tracker
+Archiver-Version: Plexus Archiver
+DynamicImport-Package: org.osgi.service.event;version="1.0.0"
+Comment-DynamicImport: this is only used to allow late binding of the package
+Bundle-ActivationPolicy: lazy
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/equinox/rt.equinox.bundles.git;path="bundles/org.eclipse.equinox.app";tag="I20150721-0800";commitId=4155be3c91ed53347dd88f898fd09d0390a0cbae
+Build-Jdk: 1.8.0_40

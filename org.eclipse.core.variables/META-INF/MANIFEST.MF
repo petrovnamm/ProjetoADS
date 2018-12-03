@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.core.variables;singleton:=true
+Bundle-Version: 3.4.0.v20170113-2056
+Bundle-ClassPath: org.eclipse.core.variables_3.4.0.v20170113-2056.jar
+Bundle-Activator: org.eclipse.core.variables.VariablesPlugin
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.core.internal.variables;x-internal:=true,
+ org.eclipse.core.variables
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.3.0,4.0.0)"
+Built-By: genie.releng
+Build-Jdk: 1.8.0_102
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/platform/eclipse.platform.debug.git;path="org.eclipse.core.variables";tag="I20170113-2000";commitId=ebb2566c95427e5c7cffd5e27f1e910b0a187b17
+Created-By: Apache Maven 3.3.3
+Archiver-Version: Plexus Archiver
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

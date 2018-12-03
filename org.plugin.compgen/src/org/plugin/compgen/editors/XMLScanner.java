@@ -15,7 +15,7 @@ public class XMLScanner extends RuleBasedScanner {
 		//Add rule for processing instructions
 		rules[0] = new SingleLineRule("<?", "?>", procInstr);
 		// Add generic whitespace rule.
-		rules[1] = new WhitespaceRule(new XMLWhitespaceDetector());
+		rules[1] = new WhitespaceRule(new ComGenWhitespaceDetector());
 
 		setRules(rules);
 	}
