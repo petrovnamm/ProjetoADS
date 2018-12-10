@@ -22,7 +22,7 @@
 
 	<extension point="org.eclipse.dltk.core.completionEngine">
 	   <completionEngine
-	         class="org.plugin.compgen.editors.CompGenCompletionEngine"
+	         class="org.plugin.compgen.editors.completion.CGCompletionEngine"
 	         nature="org.plugin.compgen.editors.CompGenNature"
 	         priority="0">
 	   </completionEngine>
@@ -31,7 +31,7 @@
 	<extension point="org.eclipse.dltk.ui.scriptCompletionProposalComputer"
 			id="org.eclipse.dltk.ui">
 			<scriptCompletionProposalComputer
-				class="org.plugin.compgen.editors.CompGenCompletionProposalComputer"
+				class="org.plugin.compgen.editors.completion.CGCompletionProposalComputer"
 				categoryId="org.eclipse.dltk.ui.scriptTypeProposalCategory"
 				toolkitId="org.plugin.compgen.editors.CompGenEditor.nature">
 				<partition type="__dftl_partition_content_type"/>
