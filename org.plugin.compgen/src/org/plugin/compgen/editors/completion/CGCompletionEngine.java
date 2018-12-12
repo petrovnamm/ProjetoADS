@@ -7,12 +7,15 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.dltk.codeassist.ICompletionEngine;
 import org.eclipse.dltk.compiler.env.IModuleSource;
 import org.eclipse.dltk.core.CompletionRequestor;
+import org.eclipse.dltk.core.DLTKCore;
 import org.eclipse.dltk.core.IField;
 import org.eclipse.dltk.core.IMethod;
 import org.eclipse.dltk.core.IModelElement;
+import org.eclipse.dltk.core.IModelElementVisitor;
 import org.eclipse.dltk.core.IScriptProject;
 import org.eclipse.dltk.core.ISourceModule;
 import org.eclipse.dltk.core.IType;
+import org.eclipse.dltk.core.ModelException;
 
 public class CGCompletionEngine implements ICompletionEngine {
 	IScriptProject project;
@@ -34,7 +37,7 @@ public class CGCompletionEngine implements ICompletionEngine {
  
 		// Completion for model elements.
 		try {
-			module.getModelElement().accept(new IModelElementVisitor() {
+			module.getModel().accept(new IModelElementVisitor() {
 				public boolean visit(IModelElement element) {
 					if (element.getElementType() > IModelElement.SOURCE_MODULE) {
 						createProposal(element.getElementName(), element);
@@ -75,7 +78,7 @@ public class CGCompletionEngine implements ICompletionEngine {
 					proposal.setFlags(((IType) element).getFlags());
 					break;
 				default:
-					proposal = this.createProposal(CompletionProposal.KEYWORD,
+					proposal = this.createProposal(CGCompletionProposal.KEYWORD,
 							this.actualCompletionPosition);
 					break;
 				}
@@ -100,8 +103,8 @@ public class CGCompletionEngine implements ICompletionEngine {
 	public void setRequestor(CompletionRequestor requestor) {
 		this.requestor = requestor;
 	}
-	protected CompletionProposal createProposal(int kind, int completionOffset) {
-		return CompletionProposal.create(kind,
+	protected CGCompletionProposal createProposal(int kind, int completionOffset) {
+		return (CGCompletionProposal) CGCompletionProposal.create(kind,
 				completionOffset - this.offset);
 	}
 
