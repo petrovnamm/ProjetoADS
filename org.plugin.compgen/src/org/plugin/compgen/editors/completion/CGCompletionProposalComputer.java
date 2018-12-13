@@ -9,16 +9,16 @@ import org.eclipse.jface.text.templates.TemplateCompletionProcessor;
 public class CGCompletionProposalComputer extends
 ScriptCompletionProposalComputer {
 
-public CGCompletionProposalComputer() {
-}
-
-protected CGCompletionProposalCollector createCollector(
-	ScriptContentAssistInvocationContext context) {
-return new CGCompletionProposalCollector(context.getSourceModule());
-}
-
-protected TemplateCompletionProcessor createTemplateProposalComputer(
-	ScriptContentAssistInvocationContext context) {
-return null;
-}
+	public CGCompletionProposalComputer() {
+	}
+	
+	protected ScriptCompletionProposalCollector createCollector(
+		ScriptContentAssistInvocationContext context) {
+	return new CGCompletionProposalCollector(context.getSourceModule());
+	}
+	
+	protected TemplateCompletionProcessor createTemplateProposalComputer(
+		ScriptContentAssistInvocationContext context) {
+	return null;
+	}
 }

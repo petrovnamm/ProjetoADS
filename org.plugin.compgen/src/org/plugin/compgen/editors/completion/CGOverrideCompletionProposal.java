@@ -14,6 +14,4 @@ public class CGOverrideCompletionProposal extends ScriptCompletionProposal {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
 }
