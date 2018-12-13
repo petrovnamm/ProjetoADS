@@ -13,5 +13,12 @@
             id="org.plugin.compgen.editors.XMLEditor">
       </editor>
    </extension>
-
+         <extension point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectors">
+  <hyperlinkDetector            
+        class="org.plugin.compgen.hyperlinkdetector.ImpHyperlinkDetector"
+        id="org.plugin.compgen.hyperlinkdetector.ImpHyperlinkDetector1"
+        name="ImpHyperlinkDetector"
+        targetId="org.eclipse.ui.DefaultTextEditor">
+  </hyperlinkDetector>
+	</extension>
 </plugin>

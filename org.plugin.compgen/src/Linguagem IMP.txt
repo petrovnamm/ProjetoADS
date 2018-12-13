@@ -1,0 +1,78 @@
+language Imp { 
+    
+    
+    class Com {
+
+       compile(dest) {
+       }
+    }
+    
+    class Assign extends Com {
+       syntax [[ id:ID ':=' val:Exp ';' ]]
+           
+       compile(asm) {
+            this.val.eval(asm);
+            asm.print("store " + this.id);
+       }
+    }
+    
+    class Block extends Com {
+       syntax [[ "{" coms:Com* '}' ]]
+       compile(asm) {
+           this.coms.forEach(c => c.compile(asm));
+       }
+    }
+    class While extends Com {
+       syntax [[ "while" test:Exp "do" c:Com ]]
+       
+       compile(asm) {
+          var l1 = asm.nextLabel();
+          var l2 = asm.nextLabel();
+          asm.print(l1+":");
+          this.test.eval(asm);
+          asm.print("jumpf "+l2);
+          this.c.compile(asm);
+          asm.print("jump "+l1);
+          asm.print(l2+":");
+       }
+    }
+    class Exp { 
+    }
+
+    class Id extends Exp {
+       syntax [[ id:ID ]]
+       
+       eval(dest) { dest.print("load " +this.id); } 
+    }
+    
+    class Op extends Exp {
+       syntax [[ left:Exp o:OP right:Exp ]]
+       
+       eval(asm) { 
+          this.left.eval(asm);
+          this.right.eval(asm);
+          asm.opCodeOf(this.o.toString());
+       }
+    }
+    
+    class Group extends Exp {
+       syntax [[ '(' e:Exp ')' ]]
+       
+       eval(asm) { this.e.eval(asm); }
+    }
+    class Num extends Exp {
+       syntax [[ val:NUM ]] 
+       eval(dest) { 
+          dest.print("push " + this.val);
+       } 
+    }
+    lexical {
+       OP '\+|\-|\*|/|(==)|(!=)|(>=)|>|<|(<=)' '';
+       NUM '[0-9]+' 'color=green';
+       ID  '[a-z]+' 'color=blue';
+    }
+    
+    
+    whitespace = '[ \n\t]+';
+    start = Com;
+}
