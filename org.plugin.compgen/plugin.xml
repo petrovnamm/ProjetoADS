@@ -6,13 +6,14 @@
          point="org.eclipse.ui.editors">
       <editor
             name="CompGen Editor"
-            extensions="xml"
+            extensions="cg"
             icon="icons/sample.gif"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             class="org.plugin.compgen.editors.CompGenEditor"
             id="org.plugin.compgen.editors.CompGenEditor">
       </editor>
    </extension>
+   
          <extension point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectors">
   <hyperlinkDetector            
         class="org.plugin.compgen.hyperlinkdetector.ImpHyperlinkDetector"

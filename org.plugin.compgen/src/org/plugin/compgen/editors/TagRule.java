@@ -5,14 +5,14 @@ import org.eclipse.jface.text.rules.*;
 public class TagRule extends MultiLineRule {
 
 	public TagRule(IToken token) {
-		super("<", ">", token);
+		super("{", "}", token);
 	}
 	protected boolean sequenceDetected(
 		ICharacterScanner scanner,
 		char[] sequence,
 		boolean eofAllowed) {
 		int c = scanner.read();
-		if (sequence[0] == '<') {
+		if (sequence[0] == '{') {
 			if (c == '?') {
 				// processing instruction - abort
 				scanner.unread();
@@ -23,7 +23,7 @@ public class TagRule extends MultiLineRule {
 				// comment - abort
 				return false;
 			}
-		} else if (sequence[0] == '>') {
+		} else if (sequence[0] == '}') {
 			scanner.unread();
 		}
 		return super.sequenceDetected(scanner, sequence, eofAllowed);

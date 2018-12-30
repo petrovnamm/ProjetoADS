@@ -13,7 +13,7 @@ public class CGPartitionScanner extends RuleBasedPartitionScanner {
 
 		IPredicateRule[] rules = new IPredicateRule[2];
 
-		rules[0] = new MultiLineRule("<!--", "-->", conGenComment);
+		rules[0] = new MultiLineRule("<--", "-->", conGenComment);
 		rules[1] = new ClassRule(conGenClass);
 		//rules[1] = new TagRule(conGenContent);
 
